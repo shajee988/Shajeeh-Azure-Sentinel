@@ -1,7 +1,7 @@
 id: aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
 name: Test - Suspicious Login Rule
 description: This is a test rule that detects failed logins.
-severity: Low
+severity: Medium
 kind: Scheduled
 status: Enabled
 
