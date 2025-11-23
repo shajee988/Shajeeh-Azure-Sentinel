@@ -15,6 +15,7 @@ query: |
   SigninLogs
   | where ResultType != 0
   |where Location!="AU"
+  |where AppDisplayName!="Teams"
   | project TimeGenerated, UserPrincipalName, ResultType, IPAddress  
 
 alertDetailsOverride:
