@@ -14,6 +14,7 @@ triggerThreshold: 0
 query: |
   SigninLogs
   | where ResultType != 0
+  |where Location!="AU"
   | project TimeGenerated, UserPrincipalName, ResultType, IPAddress  
 
 alertDetailsOverride:
@@ -22,4 +23,3 @@ alertDetailsOverride:
 
 eventGroupingSettings:
   aggregationKind: AlertPerResult
-  
