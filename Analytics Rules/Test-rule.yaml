@@ -1,0 +1,25 @@
+id: aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
+name: Test - Suspicious Login Rule
+description: This is a test rule that detects failed logins.
+severity: Low
+kind: Scheduled
+status: Enabled
+
+queryFrequency: 1h
+queryPeriod: 1h
+
+triggerOperator: gt
+triggerThreshold: 0
+
+query: |
+  SigninLogs
+  | where ResultType != 0
+  | project TimeGenerated, UserPrincipalName, ResultType, IPAddress  
+
+alertDetailsOverride:
+  alertDisplayNameFormat: "TEST Rule: Failed logins detected for {{UserPrincipalName}}"
+  alertDescriptionFormat: "This test rule triggered for user {{UserPrincipalName}}."
+
+eventGroupingSettings:
+  aggregationKind: AlertPerResult
+  
